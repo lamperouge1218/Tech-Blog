@@ -3,7 +3,7 @@ const { User, Comment, Post} = require("../../models");
 
 // TODO: POST route to create new Comment, if logged in
 
-// TODO: GET route to get all COmments, possibly a comment by User ID, or by Comment ID
+// TODO: GET route to get all Comments, possibly a comment by User ID, or by Comment ID
 
 // TODO: UPDATE route to edit a Comment, if logged in
 
