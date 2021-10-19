@@ -43,7 +43,7 @@ router.post("/login", async (req, res) => {
 });
 
 // CREATE new user
-router.post("/", async (req, res) => {
+router.post("/signup", async (req, res) => {
   try {
     const dbUserData = await User.create({
       username: req.body.username,
