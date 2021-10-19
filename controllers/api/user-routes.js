@@ -25,10 +25,11 @@ router.post("/login", async (req, res) => {
         .json({ message: "Incorrect email or password. Please try again!" });
       return;
     }
-
+    console.log(req.session);
     // Once the user successfully logs in, set up the sessions variable 'loggedIn'
     req.session.save(() => {
       req.session.user_id = dbUserData.id;
+      req.session.email = dbUserData.email;
       req.session.loggedIn = true;
 
       res
