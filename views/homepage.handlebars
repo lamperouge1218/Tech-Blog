@@ -2,7 +2,10 @@
   <div class="row justify-content-center">
     <div class="card col-lg-9 mb-3">
       <div class="card-header bg-success">
+        Posted by
         {{user.username}}
+        on
+        {{format_date post.date}}
       </div>
       <div class="card-body bg-dark text-light">
         <h5 class="card-title">{{post.title}}</h5>
