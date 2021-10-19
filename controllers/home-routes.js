@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const { User, Comment, Post } = require("../models");
 
+// Renders all posts by all users on the main Homepage upon load
+// User does not have to be logged in to see these posts
 router.get("/", async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -33,6 +35,7 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+// Renders signup.handlebars upon navigating to this address
 router.get("/signup", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");
