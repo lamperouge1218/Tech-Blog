@@ -50,7 +50,7 @@ router.post("/", async (req, res) => {
       email: req.body.email,
       password: req.body.password,
     });
-
+    console.log(dbUserData);
     // Set up sessions with a 'loggedIn' variable set to `true`
     req.session.save(() => {
       req.session.user_id = dbUserData.id;
