@@ -2,11 +2,11 @@
 
 ![License Badge](https://img.shields.io/badge/license-MIT-blue)
 
-## Description 
+## Description
 
-This application functions as a simple blog wherein the user can log in, make/edit/delete posts, see other user's posts, and comment on them.   
+This application functions as a simple blog wherein the user can log in, make/edit/delete posts, see other user's posts, and comment on them.
 
-Here is a screenshot of the app: 
+Here is a screenshot of the app:
 
 ![Tech Blog Screenshot]()
 
@@ -27,7 +27,7 @@ Here is a link to the Heroku deployment: [Tech Blog Heroku Link]()
 -- [Questions](#questions)
 
 ## Installation
-  
+
 To install necessary dependencies, run the following command:
 
     npm i
@@ -35,7 +35,7 @@ To install necessary dependencies, run the following command:
 Additionally, mySQL is required as a separate install. To set up database and seed it, run the following command in your mySQL shell:
 
     source db/schema.sql
-    
+
 Exit the mySQL shell and enter the following command in your terminal to seed the database:
 
     node seeds/index.js
@@ -46,9 +46,9 @@ Run the application with the following command:
 
     node server.js
 
-and open by navigating to the Heroku link listed above. 
+and open by navigating to the Heroku link listed above.
 
-Once the server is up, the user should create and account and log in to the site. Once done, the user can begin posting. Posts can be edited and deleted by the poster and other posts from the dashboard can be commented. The user cannot begin posting without having logged in first. 
+Once the server is up, the user can create an account and log in to the site. Once done, the user can begin posting. Posts can be edited and deleted by the poster and other posts from the dashboard can be commented. The user cannot begin posting without having logged in first.
 
 ## License
 
