@@ -1,5 +1,5 @@
-const router = require('express').Router();
-const { User, Comment, Post} = require('../models');
+const router = require("express").Router();
+const { User, Comment, Post } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
@@ -7,15 +7,15 @@ router.get("/", async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ["username"]
+          attributes: ["username"],
         },
       ],
     });
-    const posts = postData.map((userPosts) => userPosts.get({plain: true}));
+    const posts = postData.map((userPosts) => userPosts.get({ plain: true }));
 
     res.render("homepage", {
       posts,
-      loggedIn: req.session.loggedIn
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -23,14 +23,23 @@ router.get("/", async (req, res) => {
 });
 
 // Login route
-router.get('/login', (req, res) => {
+router.get("/login", (req, res) => {
   // If the user is already logged in, redirect to the homepage
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.redirect("/");
     return;
   }
   // Otherwise, render the 'login' template
-  res.render('login');
+  res.render("login");
+});
+
+router.get("/signup", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+
+  res.render("signup");
 });
 
 module.exports = router;
