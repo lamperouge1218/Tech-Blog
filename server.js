@@ -15,6 +15,8 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ helpers });
 
 const sess = {
+  // process.env.SESSION_SECRET
+  // goes in config vars, in settings, on Heroku for deployment
   secret: "Super secret secret",
   cookie: {},
   resave: false,
