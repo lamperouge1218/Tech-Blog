@@ -25,6 +25,23 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Render the Dashboard
+// Dashboard is another Posts route
+// We need to find all posts by the logged-in User's ID
+// TODO: Set this up such that we are getting all posts by a User's ID 
+// and rendering them to the page
+router.get("/dashboard", (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect("/login");
+    return;
+  }
+  const posts = postData.map((userPosts) => userPosts.get({ plain: true }));
+  res.render("dashboard", {
+    posts,
+    loggedIn: req.session.loggedIn,
+  });
+});
+
 // Login route
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect to the homepage
@@ -54,16 +71,6 @@ router.get("/post", (req, res) => {
   }
 
   res.render("post");
-});
-
-// Render the Dashboard
-router.get("/dashboard", (req, res) => {
-  if (!req.session.loggedIn) {
-    res.redirect("/login");
-    return;
-  }
-
-  res.render("dashboard");
 });
 
 module.exports = router;

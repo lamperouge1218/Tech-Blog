@@ -25,6 +25,4 @@ async function postFormHandler(event) {
   }
 }
 
-document
-  .querySelector(".post-form")
-  .addEventListener("submit", postFormHandler);
+document.querySelector(".post-form").addEventListener("click", postFormHandler);
