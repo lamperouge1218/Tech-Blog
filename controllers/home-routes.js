@@ -30,16 +30,23 @@ router.get("/", async (req, res) => {
 // We need to find all posts by the logged-in User's ID
 // TODO: Set this up such that we are getting all posts by a User's ID
 // and rendering them to the page
-router.get("/dashboard", (req, res) => {
+router.get("/dashboard", async (req, res) => {
   if (!req.session.loggedIn) {
     res.redirect("/login");
     return;
   }
-  const posts = postData.map((userPosts) => userPosts.get({ plain: true }));
-  res.render("dashboard", {
-    posts,
-    loggedIn: req.session.loggedIn,
-  });
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      include: [{ model: Post }, { model: Comment }],
+    });
+    const posts = userData.get({ plain: true });
+    res.render("dashboard", {
+      posts,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // Login route
