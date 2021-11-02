@@ -28,7 +28,7 @@ router.get("/", async (req, res) => {
 // Render the Dashboard
 // Dashboard is another Posts route
 // We need to find all posts by the logged-in User's ID
-// TODO: Set this up such that we are getting all posts by a User's ID 
+// TODO: Set this up such that we are getting all posts by a User's ID
 // and rendering them to the page
 router.get("/dashboard", (req, res) => {
   if (!req.session.loggedIn) {
@@ -70,7 +70,7 @@ router.get("/post", (req, res) => {
     return;
   }
 
-  res.render("post");
+  res.render("post", { loggedIn: req.session.loggedIn });
 });
 
 module.exports = router;
