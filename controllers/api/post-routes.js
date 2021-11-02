@@ -18,7 +18,8 @@ router.get("/", async (req, res) => {
 // TODO: POST route to create new Post, if logged in
 router.post("/", withAuth, async (req, res) => {
   try {
-    const postData = await Post.create(...req.body, {
+    const postData = await Post.create({
+      ...req.body,
       user_id: req.session.user_id,
     });
     res.status(200).json(postData);
