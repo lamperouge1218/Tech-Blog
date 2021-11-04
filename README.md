@@ -8,7 +8,7 @@ This application functions as a simple blog wherein the user can log in, make/ed
 
 Here is a screenshot of the app:
 
-![Tech Blog Screenshot](assets\techblogscreenshot.PNG)
+![Tech Blog Screenshot](assets/techblogscreenshot.PNG)
 
 Here is a link to the Heroku deployment: [Tech Blog Heroku Link](https://whispering-tundra-24252.herokuapp.com/)
 
